@@ -2,6 +2,27 @@
 #include <unordered_map>
 #include <vector>
 #include <algorithm>
+#include <stack>
+
+bool isValid(std::string s){
+    std::stack<char> newStack;
+    bool isValid = false;
+    if(s.size() % 2 != 0) return false;
+    for(size_t i = 0; i < s.size(); i++){
+        if(s[i] == '(' || s[i] == '[' || s[i] == '{')
+            newStack.push(s[i]);
+        else if(!newStack.empty() && s[i] == ')' && newStack.top() == '(')
+            newStack.pop();
+        else if(!newStack.empty() && newStack.top() == '[' && s[i] == ']')
+            newStack.pop();
+        else if(!newStack.empty() && newStack.top() == '{' && s[i] == '}')
+            newStack.pop();
+    } 
+    isValid = newStack.size() == 0 ? true : false;
+    std::cout << "is valid: " << isValid << std::endl;
+    std::cout << std::endl;
+    return isValid;
+}
 
 bool isPalindrome(std::string s){
     if(s.empty()) return false;
@@ -52,5 +73,18 @@ int main(){
     bool isp1 = isPalindrome(s1); 
     std::cout << "is palindrome: " << isp << std::endl;
     std::cout << "is palindrome: " << isp1 << std::endl;
+
+    std::cout << "Validate Parentheses" << std::endl;
+   
+    std::string a = "[]"; 
+    std::string a1 = "([{}])"; 
+    std::string a2 = "[(])"; 
+
+    isValid(a);
+    isValid(a1);
+    isValid(a2);
+
     return 0;
+
+
 }
