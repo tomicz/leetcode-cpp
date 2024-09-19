@@ -4,6 +4,33 @@
 #include <algorithm>
 #include <stack>
 
+// BINARY SEARCH
+
+int search(std::vector<int> nums, int target){
+    int l = 0;
+    int r = nums.size() -1;
+    int m = l;
+
+    while(l <= r){
+        m = l + (r - l) / 2;
+        if(nums[m] < target)
+            l = m + 1;
+        else if(nums[m] > target)
+            r = m - 1;
+        else
+            return m; 
+    }
+
+    return -1;
+}
+void problem_binary_search(){
+    std::vector<int> inputA = {-1, 0, 3, 5, 9, 12};
+    int targetA = 9;
+   
+   int result = search(inputA, targetA); 
+   std::cout << "binary search result: " << result << std::endl;
+}
+
 bool isValid(std::string s){
     std::stack<char> newStack;
     bool isValid = false;
@@ -83,6 +110,8 @@ int main(){
     isValid(a);
     isValid(a1);
     isValid(a2);
+
+    problem_binary_search();
 
     return 0;
 
