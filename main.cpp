@@ -4,11 +4,6 @@
 #include <algorithm>
 #include <stack>
 
-
-// ====================================================
-// 206. Reverse Linked List 
-// ====================================================
-
 struct ListNode {
     int val;
     ListNode *next;
@@ -17,13 +12,72 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next){}
 };
 
+void traverse_list(ListNode* head);
+
+// ====================================================
+// 21. Merge Two Sorted Lists
+// ====================================================
+
+ListNode* merge_two_lists(ListNode* list1, ListNode* list2){
+    ListNode temp_node; 
+    ListNode* current_node = &temp_node;
+
+    while(list1 != nullptr && list2 != nullptr){
+        if(list1->val < list2->val){
+           current_node->next = list1; 
+           list1 = list1->next;
+        }
+        else{
+            current_node->next = list2;
+            list2 = list2->next;
+        }
+
+        current_node = current_node->next;
+    }
+
+    if(list1 != nullptr)
+        current_node->next = list1;
+    if(list2 != nullptr)
+        current_node->next = list2;
+
+    return temp_node.next;
+}
+
+void problem_merge_two_sorted_lists(){
+    std::cout << "=======" << std::endl;
+    std::cout << "list1" << std::endl;
+    std::cout << "=======" << std::endl;
+    ListNode* list1NodeC = new ListNode(4, nullptr);    
+    ListNode* list1NodeB = new ListNode(2, list1NodeC);    
+    ListNode* list1NodeA = new ListNode(1, list1NodeB);    
+    traverse_list(list1NodeA);
+
+    std::cout << "=======" << std::endl;
+    std::cout << "list2" << std::endl;
+    std::cout << "=======" << std::endl;
+    ListNode* list2NodeD = new ListNode(5, nullptr);    
+    ListNode* list2NodeC = new ListNode(4, list2NodeD);    
+    ListNode* list2NodeB = new ListNode(3, list2NodeC);    
+    ListNode* list2NodeA = new ListNode(1, list2NodeB);    
+    traverse_list(list2NodeA);
+
+    std::cout << "=======" << std::endl;
+    std::cout << "merged_list" << std::endl;
+    std::cout << "=======" << std::endl;
+    ListNode* head = merge_two_lists(list1NodeA, list2NodeA);
+    traverse_list(head);
+}
+
+// ====================================================
+// 206. Reverse Linked List 
+// ====================================================
+
 ListNode* create_linked_list(){
     ListNode* node5 = new ListNode(5, nullptr);
     ListNode* node4 = new ListNode(4, node5);
     ListNode* node3 = new ListNode(3, node4);
     ListNode* node2= new ListNode(2, node3);
     ListNode* head = new ListNode(1, node2);
-
     return head;
 }
 
@@ -208,7 +262,8 @@ int main(){
 //    problem_binary_search();
     
 //    problem_buy_stock();
-    problem_reverse_linked_list();
+//    problem_reverse_linked_list();
+    problem_merge_two_sorted_lists();
     return 0;
 
 
