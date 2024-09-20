@@ -3,7 +3,51 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
-#include <cmath>
+
+
+// ====================================================
+// 206. Reverse Linked List 
+// ====================================================
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr){}
+    ListNode(int x) : val(x), next(nullptr){}
+    ListNode(int x, ListNode *next) : val(x), next(next){}
+};
+
+ListNode* CreateLinkedList(){
+    ListNode* node5 = new ListNode(5, nullptr);
+    ListNode* node4 = new ListNode(4, node5);
+    ListNode* node3 = new ListNode(3, node4);
+    ListNode* node2= new ListNode(2, node3);
+    ListNode* head = new ListNode(1, node2);
+
+    return head;
+}
+
+ListNode* reverseList(ListNode* head) {
+    ListNode* node= nullptr;
+    while(head != nullptr){
+        ListNode* temp = head->next;
+        head->next = node;
+        node = head;
+        head = temp;
+        std::cout << "address: " << node << " , value: " << node->val << " , points to: " << node->next << std::endl;
+    }
+
+    // 1 -> 2 -> 3
+    // null -> 1 -> 2 -> 3
+    // null <- 1 <- 2 -> 3
+    return node;
+}
+
+void problem_reverse_linked_list(){
+    ListNode* head = CreateLinkedList();
+    reverseList(head);
+}    
+
 
 // ====================================================
 // 121. Best Time to Buy and Sell Stock
@@ -158,7 +202,8 @@ int main(){
 //
 //    problem_binary_search();
     
-    problem_buy_stock();
+//    problem_buy_stock();
+    problem_reverse_linked_list();
     return 0;
 
 

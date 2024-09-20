@@ -1,7 +1,8 @@
-### Problems addded.
+### Problems added.
 
 -   Two Sum
--   IsPalindrome
+-   Valid Anagram
 -   Valid Palindrome
 -   Binary Search
 -   Best Time to Buy and Sell Stock
+-   Reverse Linked List
