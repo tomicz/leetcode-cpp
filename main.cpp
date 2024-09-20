@@ -17,7 +17,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next){}
 };
 
-ListNode* CreateLinkedList(){
+ListNode* create_linked_list(){
     ListNode* node5 = new ListNode(5, nullptr);
     ListNode* node4 = new ListNode(4, node5);
     ListNode* node3 = new ListNode(3, node4);
@@ -27,25 +27,28 @@ ListNode* CreateLinkedList(){
     return head;
 }
 
-ListNode* reverseList(ListNode* head) {
-    ListNode* node= nullptr;
+ListNode* reverse_list(ListNode* head) {
+    ListNode* prev = nullptr;
     while(head != nullptr){
         ListNode* temp = head->next;
-        head->next = node;
-        node = head;
+        head->next = prev;
+        prev = head;
         head = temp;
-        std::cout << "address: " << node << " , value: " << node->val << " , points to: " << node->next << std::endl;
+        std::cout << "address: " << prev << " , value: " << prev->val << " , points to: " << prev->next << std::endl;
     }
+    return prev;
+}
 
-    // 1 -> 2 -> 3
-    // null -> 1 -> 2 -> 3
-    // null <- 1 <- 2 -> 3
-    return node;
+void traverse_list(ListNode* head){
+    while(head != nullptr){
+        std::cout << "address: " << head << " , value: " << head->val << " , points to: " << head->next << std::endl;
+        head = head->next;
+    }
 }
 
 void problem_reverse_linked_list(){
-    ListNode* head = CreateLinkedList();
-    reverseList(head);
+    ListNode* head = create_linked_list();
+    reverse_list(head);
 }    
 
 
@@ -93,7 +96,9 @@ void problem_buy_stock(){
     std::cout << "result b: " << resultB << std::endl;
 }
 
+// ====================================================
 // BINARY SEARCH
+// ====================================================
 
 int search(std::vector<int> nums, int target){
     int l = 0;
