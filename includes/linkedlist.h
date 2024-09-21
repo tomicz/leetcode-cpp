@@ -1,5 +1,5 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef _LINKEDLIST_H
+#define _LINKEDLIST_H
 
 struct ListNode{
     int val;
@@ -9,6 +9,13 @@ struct ListNode{
     ListNode(int x, ListNode *next) : val(x), next(next){}
 };
 
-void traverse_list(ListNode* head);
+class LinkedList{
+    public:
+        ListNode* head;
 
-#endif // LINKEDLIST_H
+        LinkedList(ListNode* head);
+
+        void traverse_list();
+};
+
+#endif
