@@ -3,20 +3,46 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
+#include "includes/linkedlist.h"
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr){}
-    ListNode(int x) : val(x), next(nullptr){}
-    ListNode(int x, ListNode *next) : val(x), next(next){}
-};
+// ====================================================
+// 141. Linked List Cycle 
+// ====================================================
+//
+// Given head, the head of a linked list, determine if the linked list has a cycle in it.
+//
+// There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+//
+// Return true if there is a cycle in the linked list. Otherwise, return false.
 
-void traverse_list(ListNode* head);
+bool hasCycle(ListNode *head) {
+    ListNode* slow_pointer = head;
+    ListNode* fast_pointer = head;
+    while(fast_pointer != nullptr && fast_pointer->next != nullptr){
+       slow_pointer = slow_pointer->next; 
+       fast_pointer = fast_pointer->next->next; 
+       if(slow_pointer == fast_pointer)
+           return true;
+    }
+    return false;        
+}
+
+void problem_linked_list_cycle(){
+    ListNode* node2 = new ListNode(-4, nullptr); 
+    ListNode* node1 = new ListNode(0, node2); 
+    ListNode* node = new ListNode(2, node1); 
+    ListNode* head = new ListNode(3, node);
+    node2->next = node;
+
+    LinkedList* linked_list = new LinkedList(head);
+    bool isCycle = hasCycle(linked_list->head);
+    std::cout << "has cycle: " << isCycle << std::endl;
+}
 
 // ====================================================
 // 21. Merge Two Sorted Lists
 // ====================================================
+
 
 ListNode* merge_two_lists(ListNode* list1, ListNode* list2){
     ListNode temp_node; 
@@ -49,8 +75,9 @@ void problem_merge_two_sorted_lists(){
     std::cout << "=======" << std::endl;
     ListNode* list1NodeC = new ListNode(4, nullptr);    
     ListNode* list1NodeB = new ListNode(2, list1NodeC);    
-    ListNode* list1NodeA = new ListNode(1, list1NodeB);    
-    traverse_list(list1NodeA);
+    ListNode* head1 = new ListNode(1, list1NodeB);    
+    LinkedList* linked_list1 = new LinkedList(head1);
+    linked_list1->traverse_list();
 
     std::cout << "=======" << std::endl;
     std::cout << "list2" << std::endl;
@@ -58,14 +85,18 @@ void problem_merge_two_sorted_lists(){
     ListNode* list2NodeD = new ListNode(5, nullptr);    
     ListNode* list2NodeC = new ListNode(4, list2NodeD);    
     ListNode* list2NodeB = new ListNode(3, list2NodeC);    
-    ListNode* list2NodeA = new ListNode(1, list2NodeB);    
-    traverse_list(list2NodeA);
+    ListNode* head2 = new ListNode(1, list2NodeB);    
+    LinkedList* linked_list2 = new LinkedList(head2);
+    linked_list2->traverse_list();
 
     std::cout << "=======" << std::endl;
     std::cout << "merged_list" << std::endl;
     std::cout << "=======" << std::endl;
-    ListNode* head = merge_two_lists(list1NodeA, list2NodeA);
-    traverse_list(head);
+
+    ListNode* head = merge_two_lists(head1, head2);
+
+    LinkedList* linked_list3 = new LinkedList(head);
+    linked_list3->traverse_list();
 }
 
 // ====================================================
@@ -93,12 +124,6 @@ ListNode* reverse_list(ListNode* head) {
     return prev;
 }
 
-void traverse_list(ListNode* head){
-    while(head != nullptr){
-        std::cout << "address: " << head << " , value: " << head->val << " , points to: " << head->next << std::endl;
-        head = head->next;
-    }
-}
 
 void problem_reverse_linked_list(){
     ListNode* head = create_linked_list();
@@ -263,7 +288,8 @@ int main(){
     
 //    problem_buy_stock();
 //    problem_reverse_linked_list();
-    problem_merge_two_sorted_lists();
+//    problem_merge_two_sorted_lists();
+    problem_linked_list_cycle();
     return 0;
 
 
