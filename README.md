@@ -17,8 +17,8 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 
 Compile the program using this terminal command
 
-```g++ -std=c++17 -o main main.cpp includes/linkedlist.cpp
+`g++ -std=c++17 -o main main.cpp includes/linkedlist.cpp`
 
 To run the program type
 
-```./main
+`./main`
