@@ -29,9 +29,9 @@ bool hasCycle(ListNode *head) {
 
 void problem_linked_list_cycle(){
     LinkedList* linked_list = new LinkedList(3);
-    linked_list->add_last(2);
+    ListNode* link = linked_list->add_last(2);
     linked_list->add_last(0);
-    linked_list->add_last(-4);
+    linked_list->add_last(-4)->next = link;
     bool isCycle = hasCycle(linked_list->head);
     std::cout << "has cycle: " << isCycle << std::endl;
 }
@@ -279,8 +279,8 @@ int main(){
     
 //    problem_buy_stock();
 //    problem_reverse_linked_list();
-    problem_merge_two_sorted_lists();
-//    problem_linked_list_cycle();
+//    problem_merge_two_sorted_lists();
+    problem_linked_list_cycle();
     return 0;
 
 

@@ -6,7 +6,7 @@ LinkedList::LinkedList(int value){
     tail = head;
 }
 
-void LinkedList::add_last(int value){
+ListNode* LinkedList::add_last(int value){
     ListNode* node = new ListNode(value);
     if(tail != nullptr){
         tail->next = node;
@@ -14,6 +14,7 @@ void LinkedList::add_last(int value){
         head = node;
     }
     tail = node;
+    return node;
 }
 
 void LinkedList::traverse_list(){

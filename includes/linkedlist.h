@@ -16,7 +16,7 @@ class LinkedList{
 
         LinkedList(int value);
 
-        void add_last(int value);
+        ListNode* add_last(int value);
         void traverse_list();
 };
 
