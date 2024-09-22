@@ -12,9 +12,11 @@ struct ListNode{
 class LinkedList{
     public:
         ListNode* head;
+        ListNode* tail;
 
-        LinkedList(ListNode* head);
+        LinkedList(int value);
 
+        void add_last(int value);
         void traverse_list();
 };
 

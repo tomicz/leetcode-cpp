@@ -28,13 +28,10 @@ bool hasCycle(ListNode *head) {
 }
 
 void problem_linked_list_cycle(){
-    ListNode* node2 = new ListNode(-4, nullptr); 
-    ListNode* node1 = new ListNode(0, node2); 
-    ListNode* node = new ListNode(2, node1); 
-    ListNode* head = new ListNode(3, node);
-    node2->next = node;
-
-    LinkedList* linked_list = new LinkedList(head);
+    LinkedList* linked_list = new LinkedList(3);
+    linked_list->add_last(2);
+    linked_list->add_last(0);
+    linked_list->add_last(-4);
     bool isCycle = hasCycle(linked_list->head);
     std::cout << "has cycle: " << isCycle << std::endl;
 }
@@ -73,44 +70,35 @@ void problem_merge_two_sorted_lists(){
     std::cout << "=======" << std::endl;
     std::cout << "list1" << std::endl;
     std::cout << "=======" << std::endl;
-    ListNode* list1NodeC = new ListNode(4, nullptr);    
-    ListNode* list1NodeB = new ListNode(2, list1NodeC);    
-    ListNode* head1 = new ListNode(1, list1NodeB);    
-    LinkedList* linked_list1 = new LinkedList(head1);
+    LinkedList* linked_list1 = new LinkedList(1);
+    linked_list1->add_last(2);
+    linked_list1->add_last(4);
     linked_list1->traverse_list();
 
     std::cout << "=======" << std::endl;
     std::cout << "list2" << std::endl;
     std::cout << "=======" << std::endl;
-    ListNode* list2NodeD = new ListNode(5, nullptr);    
-    ListNode* list2NodeC = new ListNode(4, list2NodeD);    
-    ListNode* list2NodeB = new ListNode(3, list2NodeC);    
-    ListNode* head2 = new ListNode(1, list2NodeB);    
-    LinkedList* linked_list2 = new LinkedList(head2);
+    LinkedList* linked_list2 = new LinkedList(1);
+    linked_list2->add_last(3);
+    linked_list2->add_last(4);
+    linked_list2->add_last(5);
     linked_list2->traverse_list();
 
     std::cout << "=======" << std::endl;
     std::cout << "merged_list" << std::endl;
     std::cout << "=======" << std::endl;
 
+    ListNode* head1 = linked_list1->head;
+    ListNode* head2 = linked_list2->head;
     ListNode* head = merge_two_lists(head1, head2);
 
-    LinkedList* linked_list3 = new LinkedList(head);
+    LinkedList* linked_list3 = new LinkedList(head->val);
     linked_list3->traverse_list();
 }
 
 // ====================================================
 // 206. Reverse Linked List 
 // ====================================================
-
-ListNode* create_linked_list(){
-    ListNode* node5 = new ListNode(5, nullptr);
-    ListNode* node4 = new ListNode(4, node5);
-    ListNode* node3 = new ListNode(3, node4);
-    ListNode* node2= new ListNode(2, node3);
-    ListNode* head = new ListNode(1, node2);
-    return head;
-}
 
 ListNode* reverse_list(ListNode* head) {
     ListNode* prev = nullptr;
@@ -119,15 +107,21 @@ ListNode* reverse_list(ListNode* head) {
         head->next = prev;
         prev = head;
         head = temp;
-        std::cout << "address: " << prev << " , value: " << prev->val << " , points to: " << prev->next << std::endl;
     }
     return prev;
 }
 
 
 void problem_reverse_linked_list(){
-    ListNode* head = create_linked_list();
-    reverse_list(head);
+    LinkedList* linked_list = new LinkedList(1);
+    linked_list->add_last(2);
+    linked_list->add_last(3);
+    linked_list->add_last(4);
+    linked_list->add_last(5);
+    linked_list->add_last(6);
+    linked_list->traverse_list();
+    linked_list->head = reverse_list(linked_list->head);
+    linked_list->traverse_list();
 }    
 
 
@@ -287,9 +281,9 @@ int main(){
 //    problem_binary_search();
     
 //    problem_buy_stock();
-//    problem_reverse_linked_list();
+    problem_reverse_linked_list();
 //    problem_merge_two_sorted_lists();
-    problem_linked_list_cycle();
+//    problem_linked_list_cycle();
     return 0;
 
 
