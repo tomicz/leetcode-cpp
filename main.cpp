@@ -88,11 +88,8 @@ void problem_merge_two_sorted_lists(){
     std::cout << "merged_list" << std::endl;
     std::cout << "=======" << std::endl;
 
-    ListNode* head1 = linked_list1->head;
-    ListNode* head2 = linked_list2->head;
-    ListNode* head = merge_two_lists(head1, head2);
-
-    LinkedList* linked_list3 = new LinkedList(head->val);
+    LinkedList* linked_list3 = new LinkedList(0);
+    linked_list3->head = merge_two_lists(linked_list1->head, linked_list2->head);
     linked_list3->traverse_list();
 }
 
@@ -281,8 +278,8 @@ int main(){
 //    problem_binary_search();
     
 //    problem_buy_stock();
-    problem_reverse_linked_list();
-//    problem_merge_two_sorted_lists();
+//    problem_reverse_linked_list();
+    problem_merge_two_sorted_lists();
 //    problem_linked_list_cycle();
     return 0;
 
