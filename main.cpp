@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
+#include <chrono>
 #include "includes/linkedlist.h"
 
 // ====================================================
@@ -250,6 +251,28 @@ std::vector<int> two_sum(std::vector<int>& nums, int target){
     return indicies;
 }
 
+// ====================================================
+// 217. Contains Duplicate
+// ====================================================
+
+bool contains_duplicate(std::vector<int>& nums){
+    for(size_t i = 0; i < nums.size(); i++){
+        for(size_t j = i + 1; j < nums.size(); j++){
+           if(nums[i] == nums[j]){
+               return true;
+           }
+        }
+    }
+
+    return false;
+}
+
+void problem_contains_duplicate(){
+    std::vector<int> vec = {1, 2, 3, 1};
+    bool contains = contains_duplicate(vec);
+    std::cout << "contains: " << contains << std::endl;
+}
+
 int main(){
     // TWO SUM
 //    std::cout << "TWO SUM" << std::endl;
@@ -280,7 +303,13 @@ int main(){
 //    problem_buy_stock();
 //    problem_reverse_linked_list();
 //    problem_merge_two_sorted_lists();
-    problem_linked_list_cycle();
+//    problem_linked_list_cycle();
+    auto start = std::chrono::high_resolution_clock::now();
+    problem_contains_duplicate();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
+
     return 0;
 
 
