@@ -12,6 +12,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   Reverse Linked List
 -   Merge Two Sorted Lists
 -   141\. Linked List Cycle
+-   217\. Contains Duplicate
 
 ### How to use
 
