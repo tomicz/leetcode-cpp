@@ -15,6 +15,7 @@ class LinkedList{
         ListNode* tail;
 
         LinkedList(int value);
+        ~LinkedList();
 
         ListNode* add_last(int value);
         void traverse_list();

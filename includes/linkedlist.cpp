@@ -6,6 +6,15 @@ LinkedList::LinkedList(int value){
     tail = head;
 }
 
+LinkedList::~LinkedList(){
+    ListNode* current = head;
+    while(current != nullptr){
+        ListNode* next_node = current->next;
+        delete current;
+        current = next_node;
+    }
+}
+
 ListNode* LinkedList::add_last(int value){
     ListNode* node = new ListNode(value);
     if(tail != nullptr){
