@@ -256,11 +256,12 @@ std::vector<int> two_sum(std::vector<int>& nums, int target){
 // ====================================================
 
 bool contains_duplicate(std::vector<int>& nums){
+    std::unordered_map<int, int> map;
     for(size_t i = 0; i < nums.size(); i++){
-        for(size_t j = i + 1; j < nums.size(); j++){
-           if(nums[i] == nums[j]){
-               return true;
-           }
+        if(map.find(nums[i]) != map.end()){
+            return true;
+        }else{
+            map[nums[i]] = i;
         }
     }
 
