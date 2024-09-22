@@ -11,6 +11,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   Best Time to Buy and Sell Stock
 -   Reverse Linked List
 -   Merge Two Sorted Lists
+-   20\. Valid Parentheses
 -   141\. Linked List Cycle
 -   217\. Contains Duplicate
 
