@@ -216,6 +216,10 @@ bool isPalindrome(std::string s){
     return true;
 }
 
+// ====================================================
+// 1. Two Sum 
+// ====================================================
+
 std::vector<int> two_sum(std::vector<int>& nums, int target){
     std::unordered_map<int, int> umap;
     std::vector<int> indicies; 
@@ -229,6 +233,13 @@ std::vector<int> two_sum(std::vector<int>& nums, int target){
         }
     } 
     return indicies;
+}
+
+void problem_two_sum(){
+    int target = 9;
+    std::vector<int> nums = {2, 7, 11, 15};
+    std::vector<int> result = two_sum(nums, target);
+    std::cout << "result two sum: " << result[0] << ", "<< result[1] << std::endl;
 }
 
 // ====================================================
@@ -283,12 +294,6 @@ void problem_contains_duplicate(){
 }
 
 int main(){
-    // TWO SUM
-//    std::cout << "TWO SUM" << std::endl;
-//    std::vector<int> nums = {2, 7, 11, 15};
-//    int target = 9;
-//    std::vector<int> result = two_sum(nums, target);
-//    std::cout << result[0] << ", " << result[1] << std::endl;
 //    std::cout << "IS PALINDROME" << std::endl;
 //    std::string s = "A man, a plan, a canal: Panama";
 //    std::string s1 = "race a car";
@@ -296,17 +301,8 @@ int main(){
 //    bool isp1 = isPalindrome(s1); 
 //    std::cout << "is palindrome: " << isp << std::endl;
 //    std::cout << "is palindrome: " << isp1 << std::endl;
-//
-//    std::cout << "Validate Parentheses" << std::endl;
-//   
-//    problem_binary_search();
-//    problem_buy_stock();
-//    problem_reverse_linked_list();
-//    problem_merge_two_sorted_lists();
-//    problem_linked_list_cycle();
     auto start = std::chrono::high_resolution_clock::now();
-//    problem_contains_duplicate();
-    problem_is_valid_parantheses();
+    problem_two_sum();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;

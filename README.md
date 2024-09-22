@@ -4,7 +4,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 
 ### Problems added.
 
--   Two Sum
+-   1\. Two Sum
 -   Valid Anagram
 -   Valid Palindrome
 -   Binary Search
