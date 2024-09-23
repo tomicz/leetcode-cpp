@@ -317,6 +317,65 @@ void problem_contains_duplicate(){
     std::cout << "contains: " << contains << std::endl;
 }
 
+
+struct TreeNode{
+    int value;
+    TreeNode* left;
+    TreeNode* right;
+    
+    TreeNode(int value){
+       this->value = value;         
+       left = nullptr;
+       right = nullptr;
+    }
+};
+
+class BinaryTree{
+    public:
+        TreeNode* root = nullptr;
+        int size = 0;
+
+        BinaryTree(int value){
+            root = new TreeNode(value);
+        }
+
+        TreeNode* insert(int value){
+            TreeNode* tree_node = new TreeNode(value);
+            if(root == nullptr){
+                root = tree_node; 
+                size++;
+                return root;
+            }
+            else{
+                TreeNode* temp_node = root; 
+                while(temp_node != nullptr){
+                    if(value < temp_node->value){
+                        if(temp_node->left == nullptr){
+                            temp_node->left = tree_node;
+                            size++;
+                            std::cout << "node added: " << tree_node->value << std::endl;
+                            return tree_node;
+                        }
+                        temp_node = temp_node->left;
+                    }else if(value > temp_node->value){
+                        if(temp_node->right == nullptr){
+                            temp_node->right = tree_node;
+                            size++;
+                            std::cout << "node added: " << tree_node->value << std::endl;
+                            return tree_node;
+                        }
+                        temp_node = temp_node->right;
+                    }else{
+                        std::cout << "node already exists" << std::endl;
+                        return nullptr;
+                    }
+                }
+
+            }
+            return nullptr;
+        }
+};
+
 int main(){
 //    std::cout << "IS PALINDROME" << std::endl;
 //    std::string s = "A man, a plan, a canal: Panama";
@@ -325,13 +384,20 @@ int main(){
 //    bool isp1 = isPalindrome(s1); 
 //    std::cout << "is palindrome: " << isp << std::endl;
 //    std::cout << "is palindrome: " << isp1 << std::endl;
+    
+    BinaryTree* binary_tree = new BinaryTree(9);
+    binary_tree->insert(4);
+    binary_tree->insert(6);
+    binary_tree->insert(20);
+    binary_tree->insert(170);
+    binary_tree->insert(15);
+    binary_tree->insert(1);
+    std::cout << "tree size: " << binary_tree->size << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-    problem_is_valid_anagram();
+
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
 
     return 0;
-
-
 }
