@@ -271,6 +271,30 @@ void problem_is_valid_parantheses(){
 }
 
 // ====================================================
+// 242. Valid Anagram 
+// ====================================================
+
+bool is_anagram(std::string s, std::string t){
+    if(s.size() != t.size()) return false;
+    std::array<int, 26> arr = {0};
+    for(size_t i = 0; i < s.size(); i++){
+        arr[s[i] - 'a']++;
+        arr[t[i] - 'a']--;
+    } 
+    for(int i: arr){
+        if(i != 0) return false; 
+    }
+    return true;
+}
+
+void problem_is_valid_anagram(){
+    std::string s = "anagram";
+    std::string t = "nagaram";
+    bool is_valid = is_anagram(s, t);
+    std::cout << "is valid anagram: " << is_valid << std::endl;
+}
+
+// ====================================================
 // 217. Contains Duplicate
 // ====================================================
 
@@ -302,7 +326,7 @@ int main(){
 //    std::cout << "is palindrome: " << isp << std::endl;
 //    std::cout << "is palindrome: " << isp1 << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-    problem_two_sum();
+    problem_is_valid_anagram();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
