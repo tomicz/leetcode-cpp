@@ -5,6 +5,7 @@
 #include <stack>
 #include <chrono>
 #include "includes/linkedlist.h"
+#include "includes/binary_tree.h"
 
 // ====================================================
 // 141. Linked List Cycle 
@@ -349,84 +350,6 @@ void problem_contains_duplicate(){
     bool contains = contains_duplicate(vec);
     std::cout << "contains: " << contains << std::endl;
 }
-
-
-struct TreeNode{
-    int value;
-    TreeNode* left;
-    TreeNode* right;
-    
-    TreeNode(int value){
-       this->value = value;         
-       left = nullptr;
-       right = nullptr;
-    }
-};
-
-class BinaryTree{
-    public:
-        TreeNode* root = nullptr;
-        int size = 0;
-
-        BinaryTree(int value){
-            root = new TreeNode(value);
-        }
-
-        TreeNode* insert(int value){
-            TreeNode* tree_node = new TreeNode(value);
-            if(root == nullptr){
-                root = tree_node; 
-                size++;
-                return root;
-            }
-            else{
-                TreeNode* temp_node = root; 
-                while(temp_node != nullptr){
-                    if(value < temp_node->value){
-                        if(temp_node->left == nullptr){
-                            temp_node->left = tree_node;
-                            size++;
-                            std::cout << "node added: " << tree_node->value << std::endl;
-                            return tree_node;
-                        }
-                        temp_node = temp_node->left;
-                    }else if(value > temp_node->value){
-                        if(temp_node->right == nullptr){
-                            temp_node->right = tree_node;
-                            size++;
-                            std::cout << "node added: " << tree_node->value << std::endl;
-                            return tree_node;
-                        }
-                        temp_node = temp_node->right;
-                    }else{
-                        std::cout << "node already exists" << std::endl;
-                        return nullptr;
-                    }
-                }
-
-            }
-            return nullptr;
-        }
-
-        TreeNode* find(int value){
-            if(root == nullptr)
-                return nullptr;
-            TreeNode* temp_node = root;
-            while(temp_node != nullptr){
-                if(value == temp_node->value){
-                    return temp_node;
-                }else{
-                    if(value < temp_node->value)
-                        temp_node = temp_node->left;
-                    else if(value > temp_node->value)
-                        temp_node = temp_node->right;
-                    else
-                        temp_node = nullptr;;
-                }
-            }
-            return nullptr;
-        }
-};
 
 int main(){
     BinaryTree* binary_tree = new BinaryTree(9);
