@@ -295,6 +295,39 @@ void problem_is_valid_anagram(){
 }
 
 // ====================================================
+// 125. Valid Palindrome 
+// ====================================================
+
+bool is_palindrome(std::string s){
+    if(s.empty()) return false;
+    if(s.size() == 1) return true;
+    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+    std::string fstring;
+    for(char c: s){
+        int j = static_cast<int>(c);
+        if( j > 96 && j < 123)
+            fstring += c;
+        if(j > 47 && j < 58)
+            fstring += c;
+    } 
+    int r = 0;
+    int l = fstring.size() - 1;
+    while(r < l){
+        if(fstring[r] != fstring[l])
+            return false;
+        r++;
+        l--;
+    }
+    return true;
+}
+
+void problem_valid_palindrome(){
+    std::string s = "A man, a plan, a canal: Panama";
+    bool isp = is_palindrome(s); 
+    std::cout << "is palindrome: " << isp << std::endl;
+}
+
+// ====================================================
 // 217. Contains Duplicate
 // ====================================================
 
@@ -377,13 +410,6 @@ class BinaryTree{
 };
 
 int main(){
-//    std::cout << "IS PALINDROME" << std::endl;
-//    std::string s = "A man, a plan, a canal: Panama";
-//    std::string s1 = "race a car";
-//    bool isp = isPalindrome(s); 
-//    bool isp1 = isPalindrome(s1); 
-//    std::cout << "is palindrome: " << isp << std::endl;
-//    std::cout << "is palindrome: " << isp1 << std::endl;
     
     BinaryTree* binary_tree = new BinaryTree(9);
     binary_tree->insert(4);
@@ -394,7 +420,7 @@ int main(){
     binary_tree->insert(1);
     std::cout << "tree size: " << binary_tree->size << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-
+    problem_valid_palindrome();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
