@@ -407,10 +407,28 @@ class BinaryTree{
             }
             return nullptr;
         }
+
+        TreeNode* find(int value){
+            if(root == nullptr)
+                return nullptr;
+            TreeNode* temp_node = root;
+            while(temp_node != nullptr){
+                if(value == temp_node->value){
+                    return temp_node;
+                }else{
+                    if(value < temp_node->value)
+                        temp_node = temp_node->left;
+                    else if(value > temp_node->value)
+                        temp_node = temp_node->right;
+                    else
+                        temp_node = nullptr;;
+                }
+            }
+            return nullptr;
+        }
 };
 
 int main(){
-    
     BinaryTree* binary_tree = new BinaryTree(9);
     binary_tree->insert(4);
     binary_tree->insert(6);
@@ -418,6 +436,10 @@ int main(){
     binary_tree->insert(170);
     binary_tree->insert(15);
     binary_tree->insert(1);
+    
+    TreeNode* found_node = binary_tree->find(170);
+    std::cout << "found node: " << found_node->value << std::endl;
+    
     std::cout << "tree size: " << binary_tree->size << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
     problem_valid_palindrome();
