@@ -1,9 +1,11 @@
 #include <iostream>
 #include <queue>
+#include <stdexcept>
 #include "binary_tree.h"
 
 BinaryTree::BinaryTree(int value){
     root = new TreeNode(value);
+    size++;
 }
 
 TreeNode* BinaryTree::insert(int value){
@@ -58,7 +60,24 @@ TreeNode* BinaryTree::find(int value){
     return nullptr;
 }
 
-void BinaryTree::traverse(){
+void BinaryTree::traverse(TraversalType type){
+    switch(type){
+        case TraversalType::LEVEL_ORDER:
+            level_order_traversal();
+            break;
+        case TraversalType::PRE_ORDER:
+            throw std::invalid_argument("PRE_ORDER traversal function is missing!");
+            break;
+        case TraversalType::IN_ORDER:
+            throw std::invalid_argument("IN_ORDER traversal function is missing!");
+            break;
+        case TraversalType::POST_ORDER:
+            throw std::invalid_argument("POST_ORDER traversal function is missing!");
+            break;
+    }
+}
+
+void BinaryTree::level_order_traversal(){
     if(root == nullptr) return;
     std::queue<TreeNode*> que;
     que.push(root);
@@ -68,7 +87,6 @@ void BinaryTree::traverse(){
         que.pop();
         if(temp_node->left != nullptr)
             que.push(temp_node->left);
-
         if(temp_node->right != nullptr)
             que.push(temp_node->right);
     }

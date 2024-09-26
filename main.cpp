@@ -365,7 +365,8 @@ int main(){
     
     std::cout << "tree size: " << binary_tree->size << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-    binary_tree->traverse();
+    std::cout << "traversing binary tree level using order traversal algorithm" << std::endl;
+    binary_tree->traverse(TraversalType::LEVEL_ORDER);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;

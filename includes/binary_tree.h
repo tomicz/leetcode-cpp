@@ -13,6 +13,13 @@ struct TreeNode{
     }
 };
 
+enum TraversalType{
+    LEVEL_ORDER,
+    PRE_ORDER,
+    IN_ORDER,
+    POST_ORDER
+};
+
 class BinaryTree{
     public:
         TreeNode* root;
@@ -22,7 +29,10 @@ class BinaryTree{
 
         TreeNode* insert(int value);
         TreeNode* find(int value);
-        void traverse();
-};
+        void traverse(TraversalType type);
 
+    private:
+        void level_order_traversal();
+
+};
 #endif
