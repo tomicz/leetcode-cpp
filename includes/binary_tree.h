@@ -22,6 +22,7 @@ class BinaryTree{
 
         TreeNode* insert(int value);
         TreeNode* find(int value);
+        void traverse();
 };
 
 #endif

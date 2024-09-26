@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include "binary_tree.h"
 
 BinaryTree::BinaryTree(int value){
@@ -19,7 +20,6 @@ TreeNode* BinaryTree::insert(int value){
                 if(temp_node->left == nullptr){
                     temp_node->left = tree_node;
                     size++;
-                    std::cout << "node added: " << tree_node->value << std::endl;
                     return tree_node;
                 }
                 temp_node = temp_node->left;
@@ -27,12 +27,10 @@ TreeNode* BinaryTree::insert(int value){
                 if(temp_node->right == nullptr){
                     temp_node->right = tree_node;
                     size++;
-                    std::cout << "node added: " << tree_node->value << std::endl;
                     return tree_node;
                 }
                 temp_node = temp_node->right;
             }else{
-                std::cout << "node already exists" << std::endl;
                 return nullptr;
             }
         }
@@ -58,4 +56,20 @@ TreeNode* BinaryTree::find(int value){
         }
     }
     return nullptr;
+}
+
+void BinaryTree::traverse(){
+    if(root == nullptr) return;
+    std::queue<TreeNode*> que;
+    que.push(root);
+    while(!que.empty()){
+        TreeNode* temp_node = que.front();
+        std::cout << "Node data: " << temp_node->value << std::endl;
+        que.pop();
+        if(temp_node->left != nullptr)
+            que.push(temp_node->left);
+
+        if(temp_node->right != nullptr)
+            que.push(temp_node->right);
+    }
 }

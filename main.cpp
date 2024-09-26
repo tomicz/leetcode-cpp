@@ -365,7 +365,7 @@ int main(){
     
     std::cout << "tree size: " << binary_tree->size << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-    problem_valid_palindrome();
+    binary_tree->traverse();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
