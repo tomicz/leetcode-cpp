@@ -12,6 +12,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   Reverse Linked List
 -   Merge Two Sorted Lists
 -   20\. Valid Parentheses
+-   104\. Maximum Depth of Binary Tree
 -   125\. Valid Palindrome
 -   141\. Linked List Cycle
 -   217\. Contains Duplicate
@@ -21,7 +22,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 
 Compile the program using this terminal command
 
-`g++ -std=c++17 -o main main.cpp includes/linkedlist.cpp`
+`g++ -std=c++17 -o main main.cpp includes/linkedlist.cpp includes/binary_tree.cpp`
 
 To run the program type
 

@@ -33,6 +33,7 @@ class BinaryTree{
 
     private:
         void level_order_traversal();
+        void in_order_traversal();
 
 };
 #endif

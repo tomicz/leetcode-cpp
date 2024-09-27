@@ -4,8 +4,51 @@
 #include <algorithm>
 #include <stack>
 #include <chrono>
+#include <queue>
 #include "includes/linkedlist.h"
 #include "includes/binary_tree.h"
+
+// ====================================================
+// 104. Maximum Depth of Binary Tree 
+// ====================================================
+// Given the root of a binary tree, return its maximum depth.
+//
+// A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+int max_depth(TreeNode* root){
+    if(root == nullptr) return 0;
+    int level = 0;
+    std::queue<TreeNode*> q;
+    q.push(root);
+    while(!q.empty()){
+        int level_size = q.size();
+        for(size_t i = 0; i < level_size; i++){
+            TreeNode* temp_node = q.front();
+            q.pop();
+            if(temp_node->left != nullptr)
+                q.push(temp_node->left);
+            if(temp_node->right != nullptr)
+                q.push(temp_node->right);
+        }
+        level++;
+    }
+    return level;
+}
+
+void problem_maximum_depth_binary(){
+    BinaryTree* binary_tree = new BinaryTree(3);
+    TreeNode* node = new TreeNode(9);
+    TreeNode* node1 = new TreeNode(20);
+    binary_tree->root->left = node;
+    binary_tree->root->right = node1;
+    TreeNode* node2 = new TreeNode(15);
+    TreeNode* node3 = new TreeNode(7);
+    node1->left = node2;
+    node1->right = node3;
+    int level = max_depth(binary_tree->root);
+    std::cout << "level: " << level << std::endl;
+}
+
 
 // ====================================================
 // 141. Linked List Cycle 
@@ -352,21 +395,16 @@ void problem_contains_duplicate(){
 }
 
 int main(){
-    BinaryTree* binary_tree = new BinaryTree(9);
-    binary_tree->insert(4);
-    binary_tree->insert(6);
-    binary_tree->insert(20);
-    binary_tree->insert(170);
+    BinaryTree* binary_tree = new BinaryTree(10);
+    binary_tree->insert(5);
     binary_tree->insert(15);
-    binary_tree->insert(1);
-    
-    TreeNode* found_node = binary_tree->find(170);
-    std::cout << "found node: " << found_node->value << std::endl;
-    
-    std::cout << "tree size: " << binary_tree->size << std::endl;
+    binary_tree->insert(3);
+    binary_tree->insert(7);
+    binary_tree->insert(12);
+    binary_tree->insert(18);
+
     auto start = std::chrono::high_resolution_clock::now();
-    std::cout << "traversing binary tree level using order traversal algorithm" << std::endl;
-    binary_tree->traverse(TraversalType::LEVEL_ORDER);
+    problem_maximum_depth_binary();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;

@@ -2,6 +2,7 @@
 #include <queue>
 #include <stdexcept>
 #include "binary_tree.h"
+#include <stack>
 
 BinaryTree::BinaryTree(int value){
     root = new TreeNode(value);
@@ -69,7 +70,7 @@ void BinaryTree::traverse(TraversalType type){
             throw std::invalid_argument("PRE_ORDER traversal function is missing!");
             break;
         case TraversalType::IN_ORDER:
-            throw std::invalid_argument("IN_ORDER traversal function is missing!");
+            in_order_traversal();
             break;
         case TraversalType::POST_ORDER:
             throw std::invalid_argument("POST_ORDER traversal function is missing!");
@@ -89,5 +90,21 @@ void BinaryTree::level_order_traversal(){
             que.push(temp_node->left);
         if(temp_node->right != nullptr)
             que.push(temp_node->right);
+    }
+}
+
+void BinaryTree::in_order_traversal(){
+    if(root == nullptr) return;
+    std::stack<TreeNode*> s;
+    TreeNode* temp_node = root;
+    while(temp_node != nullptr || !s.empty()){
+        while(temp_node != nullptr){
+            s.push(temp_node);
+            temp_node = temp_node->left;
+        }
+        temp_node = s.top();
+        s.pop();
+        std::cout << "Node data: " << temp_node->value << std::endl;
+        temp_node = temp_node->right;
     }
 }
