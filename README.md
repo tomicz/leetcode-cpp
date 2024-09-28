@@ -17,6 +17,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   141\. Linked List Cycle
 -   217\. Contains Duplicate
 -   242\. Valid Anagram
+-   543\. Diameter of Binary Tree
 
 ### How to use
 
