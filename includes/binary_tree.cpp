@@ -82,15 +82,20 @@ void BinaryTree::level_order_traversal(){
     if(root == nullptr) return;
     std::queue<TreeNode*> que;
     que.push(root);
+    int level = 0;
     while(!que.empty()){
-        TreeNode* temp_node = que.front();
-        std::cout << "Node data: " << temp_node->value << std::endl;
-        que.pop();
-        if(temp_node->left != nullptr)
-            que.push(temp_node->left);
-        if(temp_node->right != nullptr)
-            que.push(temp_node->right);
+        for(size_t i = 0; i < que.size(); i++){
+            TreeNode* temp_node = que.front();
+            std::cout << "Node data: " << temp_node->value << std::endl;
+            que.pop();
+            if(temp_node->left != nullptr)
+                que.push(temp_node->left);
+            if(temp_node->right != nullptr)
+                que.push(temp_node->right);
+        }
+        level++;
     }
+    std::cout << "Tree max depth: " << level << std::endl;
 }
 
 void BinaryTree::in_order_traversal(){
