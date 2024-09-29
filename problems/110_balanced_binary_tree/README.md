@@ -1,6 +1,6 @@
 ### 110. Balanced Binary Tree
 
-Gven a binary tree, determine if it is height-balanced.
+Given a binary tree, determine if it is height-balanced.
 
 # Example 1
 
