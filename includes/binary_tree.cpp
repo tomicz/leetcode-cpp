@@ -113,3 +113,38 @@ void BinaryTree::in_order_traversal(){
         temp_node = temp_node->right;
     }
 }
+
+void BinaryTree::traverse_recursive(TraversalTypeRecursive type){
+    switch(type){
+        case TraversalTypeRecursive::RECURSIVE_PRE_ORDER:
+            pre_order_traversal_recursive(root);
+            break;
+        case TraversalTypeRecursive::RECURSIVE_IN_ORDER:
+            in_order_traversal_recursive(root);
+            break;
+        case TraversalTypeRecursive::RECURSIVE_POST_ORDER:
+            post_order_traversal_recursive(root);
+            break;
+    }
+}
+
+void BinaryTree::pre_order_traversal_recursive(TreeNode* root){
+    if(root == nullptr) return;
+    std::cout << "node value: " << root->value << std::endl;
+    pre_order_traversal_recursive(root->left);
+    pre_order_traversal_recursive(root->right);
+}
+
+void BinaryTree::in_order_traversal_recursive(TreeNode* root){
+    if(root == nullptr) return;
+    in_order_traversal_recursive(root->left);
+    std::cout << "node value: " << root->value << std::endl;
+    in_order_traversal_recursive(root->right);
+}
+
+void BinaryTree::post_order_traversal_recursive(TreeNode* root){
+    if(root == nullptr) return;
+    post_order_traversal_recursive(root->left);
+    post_order_traversal_recursive(root->right);
+    std::cout << "node value: " << root->value << std::endl;
+}

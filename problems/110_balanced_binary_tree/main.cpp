@@ -4,7 +4,7 @@
 class Solution{
     public:
         bool is_balanced(TreeNode* root){
-
+            
             return false;
         }
 };
@@ -22,6 +22,7 @@ int main(){
     root->right->left = nodeC;
     root->right->right = nodeD;
     bool balanced = solution.is_balanced(root);
+    binary_tree->traverse_recursive(TraversalTypeRecursive::RECURSIVE_PRE_ORDER);
     std::cout << std::boolalpha;
     std::cout << "is balanced: " << balanced << std::endl;
 
