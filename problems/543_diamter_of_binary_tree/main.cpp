@@ -1,21 +1,20 @@
 #include <iostream>
 #include "../../includes/binary_tree.h"
-#include <stack>
 
 class Solution{
     public:
         int result = 0;
         int diameterOfBinaryTree(TreeNode* root) {
-            dfs(root);
+            traverse_tree(root);
             return result;
         }
-                
-        int dfs(TreeNode* current){
+
+        int traverse_tree(TreeNode* current){
             if(current == nullptr) return 0;
-            int left = dfs(current->left);
-            int right = dfs(current->right);
-            result = std::max(result, left + right);
-            return 1 + std::max(left, right);
+            int left_node = traverse_tree(current->left);
+            int right_node = traverse_tree(current->right);
+            result = std::max(result, left_node + right_node);
+            return 1 + std::max(left_node, right_node);
         }
 };
 
