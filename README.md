@@ -12,7 +12,9 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   Reverse Linked List
 -   Merge Two Sorted Lists
 -   20\. Valid Parentheses
+-   100\. Same Tree
 -   104\. Maximum Depth of Binary Tree
+-   110\. Balanced Binary Tree
 -   125\. Valid Palindrome
 -   141\. Linked List Cycle
 -   217\. Contains Duplicate
