@@ -20,13 +20,11 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   217\. Contains Duplicate
 -   242\. Valid Anagram
 -   543\. Diameter of Binary Tree
+-   572\. Subtree of Another Tree
 
 ### How to use
 
-Compile the program using this terminal command
+Navigate to a folder named problems.
+`cd problems/`
 
-`g++ -std=c++17 -o main main.cpp includes/linkedlist.cpp includes/binary_tree.cpp`
-
-To run the program type
-
-`./main`
+Then navigate to a problem that you want to solve. Every problem has its own readme file on how to compile and run it.
