@@ -5,7 +5,8 @@ class Solution{
     public:
         bool is_balanced(TreeNode* root){
             if(root == nullptr) return true;
-            if(get_tree_height(root) == -1) return false;
+            int val = get_tree_height(root);
+            if(val == -1) return false;
             return true;
         }
 
@@ -15,7 +16,8 @@ class Solution{
             if(l_node == -1) return -1;
             int r_node = get_tree_height(root->right);
             if(r_node == -1) return -1;
-            if(abs(l_node - r_node) > 1) return -1; 
+            int diff = abs(l_node - r_node);
+            if(diff > 1) return -1; 
             return std::max(l_node, r_node) + 1;
         }
 };
