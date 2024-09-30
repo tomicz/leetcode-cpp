@@ -5,25 +5,11 @@
 class Solution{
     public:
         bool is_same_tree(TreeNode* p, TreeNode* q){
-            std::stack<TreeNode*> a_stack;
-            std::stack<TreeNode*> b_stack;
-            a_stack.push(p);
-            b_stack.push(q);
-            while(a_stack.size() > 0 && b_stack.size() > 0){
-                TreeNode* a = a_stack.top();     
-                TreeNode* b = b_stack.top();     
-                a_stack.pop(); 
-                b_stack.pop();
-                if(a == nullptr && b == nullptr) continue;
-                if(a == nullptr || b == nullptr || a->value != b->value) return false;
-                a_stack.push(a->left);
-                a_stack.push(a->right);
+            if(p == nullptr && q == nullptr) return true;
+            if(p == nullptr || q == nullptr) return false;
+            if(p->value != q->value) return false;
 
-                b_stack.push(b->left);
-                b_stack.push(b->right);
-            }
-
-            return true;
+            return is_same_tree(p->left, q->left) && is_same_tree(p->right, q->right);
         }
 };
 
