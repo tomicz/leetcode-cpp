@@ -4,7 +4,18 @@
 
 class Solution{
     public:
-        bool is_subtree(TreeNode* root, TreeNode* sub_root){
+        bool is_subtree(TreeNode* s, TreeNode* t){
+            if(t == nullptr) return true;
+            if(s == nullptr) return false;
+            if(is_same_tree(s, t)) return true;
+            return is_subtree(s->left, t) || is_subtree(s->right, t);
+        }
+
+        bool is_same_tree(TreeNode* s, TreeNode* t){
+            if(s == nullptr && t == nullptr) return true;
+            if(s != nullptr && t != nullptr && s->value == t->value){
+                return is_same_tree(s->left, t->left) && is_same_tree(s->right, t->right);
+            }
 
             return false;
         }
@@ -24,6 +35,6 @@ int main(){
     Solution solution;
     bool is_sub = solution.is_subtree(root, root->left);
     std::cout << std::boolalpha;
-    std::cout << "is subtree: " << is_sub << std::endl;
+    std::cout << "has subtree: " << is_sub << std::endl;
     return 0;
 }
