@@ -371,29 +371,6 @@ void problem_valid_palindrome(){
     std::cout << "is palindrome: " << isp << std::endl;
 }
 
-// ====================================================
-// 217. Contains Duplicate
-// ====================================================
-
-bool contains_duplicate(std::vector<int>& nums){
-    std::unordered_map<int, int> map;
-    for(size_t i = 0; i < nums.size(); i++){
-        if(map.find(nums[i]) != map.end()){
-            return true;
-        }else{
-            map[nums[i]] = i;
-        }
-    }
-
-    return false;
-}
-
-void problem_contains_duplicate(){
-    std::vector<int> vec = {1, 2, 3, 1};
-    bool contains = contains_duplicate(vec);
-    std::cout << "contains: " << contains << std::endl;
-}
-
 int main(){
     BinaryTree* binary_tree = new BinaryTree(10);
     binary_tree->insert(5);
