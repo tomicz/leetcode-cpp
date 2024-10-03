@@ -5,7 +5,6 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 ### Problems added.
 
 -   1\. Two Sum
--   Valid Palindrome
 -   Binary Search
 -   Best Time to Buy and Sell Stock
 -   Reverse Linked List
