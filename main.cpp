@@ -288,39 +288,6 @@ void problem_is_valid_parantheses(){
     std::cout << "is valid: " << isValid << std::endl;
 }
 
-// ====================================================
-// 125. Valid Palindrome 
-// ====================================================
-
-bool is_palindrome(std::string s){
-    if(s.empty()) return false;
-    if(s.size() == 1) return true;
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-    std::string fstring;
-    for(char c: s){
-        int j = static_cast<int>(c);
-        if( j > 96 && j < 123)
-            fstring += c;
-        if(j > 47 && j < 58)
-            fstring += c;
-    } 
-    int r = 0;
-    int l = fstring.size() - 1;
-    while(r < l){
-        if(fstring[r] != fstring[l])
-            return false;
-        r++;
-        l--;
-    }
-    return true;
-}
-
-void problem_valid_palindrome(){
-    std::string s = "A man, a plan, a canal: Panama";
-    bool isp = is_palindrome(s); 
-    std::cout << "is palindrome: " << isp << std::endl;
-}
-
 int main(){
     BinaryTree* binary_tree = new BinaryTree(10);
     binary_tree->insert(5);
