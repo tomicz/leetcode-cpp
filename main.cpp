@@ -261,32 +261,6 @@ bool isPalindrome(std::string s){
 }
 
 // ====================================================
-// 1. Two Sum 
-// ====================================================
-
-std::vector<int> two_sum(std::vector<int>& nums, int target){
-    std::unordered_map<int, int> umap;
-    std::vector<int> indicies; 
-    for(size_t i = 0; i < nums.size(); i++){
-        int sum = target - nums[i];
-        if(umap.find(sum) != umap.end()){
-            indicies.push_back(i);
-            indicies.push_back(umap[sum]);
-        }else{
-            umap[nums[i]] = i;
-        }
-    } 
-    return indicies;
-}
-
-void problem_two_sum(){
-    int target = 9;
-    std::vector<int> nums = {2, 7, 11, 15};
-    std::vector<int> result = two_sum(nums, target);
-    std::cout << "result two sum: " << result[0] << ", "<< result[1] << std::endl;
-}
-
-// ====================================================
 // 20. Valid Parentheses 
 // ====================================================
 
