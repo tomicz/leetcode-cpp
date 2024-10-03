@@ -240,34 +240,6 @@ void problem_binary_search(){
    std::cout << "binary search result: " << result << std::endl;
 }
 
-// ====================================================
-// 20. Valid Parentheses 
-// ====================================================
-
-bool is_valid(std::string s){
-    std::stack<char> newStack;
-    bool isValid = false;
-    if(s.size() % 2 != 0) return false;
-    for(size_t i = 0; i < s.size(); i++){
-        if(s[i] == '(' || s[i] == '[' || s[i] == '{')
-            newStack.push(s[i]);
-        else if(!newStack.empty() && s[i] == ')' && newStack.top() == '(')
-            newStack.pop();
-        else if(!newStack.empty() && newStack.top() == '[' && s[i] == ']')
-            newStack.pop();
-        else if(!newStack.empty() && newStack.top() == '{' && s[i] == '}')
-            newStack.pop();
-    } 
-    isValid = newStack.size() == 0 ? true : false;
-    return isValid;
-}
-
-void problem_is_valid_parantheses(){
-    std::string s = "([{}])"; 
-    bool isValid = is_valid(s);
-    std::cout << "is valid: " << isValid << std::endl;
-}
-
 int main(){
     BinaryTree* binary_tree = new BinaryTree(10);
     binary_tree->insert(5);
