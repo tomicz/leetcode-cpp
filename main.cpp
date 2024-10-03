@@ -315,30 +315,6 @@ void problem_is_valid_parantheses(){
 }
 
 // ====================================================
-// 242. Valid Anagram 
-// ====================================================
-
-bool is_anagram(std::string s, std::string t){
-    if(s.size() != t.size()) return false;
-    std::array<int, 26> arr = {0};
-    for(size_t i = 0; i < s.size(); i++){
-        arr[s[i] - 'a']++;
-        arr[t[i] - 'a']--;
-    } 
-    for(int i: arr){
-        if(i != 0) return false; 
-    }
-    return true;
-}
-
-void problem_is_valid_anagram(){
-    std::string s = "anagram";
-    std::string t = "nagaram";
-    bool is_valid = is_anagram(s, t);
-    std::cout << "is valid anagram: " << is_valid << std::endl;
-}
-
-// ====================================================
 // 125. Valid Palindrome 
 // ====================================================
 
