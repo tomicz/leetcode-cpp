@@ -240,26 +240,6 @@ void problem_binary_search(){
    std::cout << "binary search result: " << result << std::endl;
 }
 
-bool isPalindrome(std::string s){
-    if(s.empty()) return false;
-    if(s.size() == 1) return true;
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-    std::string filtered_string;
-    for(char c: s){
-        if(c > 47 && c < 58 || c > 96 && c < 123)
-            filtered_string += c; 
-    }
-    int r = 0;
-    int l = filtered_string.size() -1;
-    while(r < l){
-        if(filtered_string[r] != filtered_string[l])
-            return false;
-        r++;
-        l--;
-    }
-    return true;
-}
-
 // ====================================================
 // 20. Valid Parentheses 
 // ====================================================
