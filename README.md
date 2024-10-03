@@ -6,13 +6,13 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 
 -   1\. Two Sum
 -   Binary Search
--   Best Time to Buy and Sell Stock
 -   Reverse Linked List
 -   Merge Two Sorted Lists
 -   20\. Valid Parentheses
 -   100\. Same Tree
 -   104\. Maximum Depth of Binary Tree
 -   110\. Balanced Binary Tree
+-   121\. Best Time to Buy and Sell Stock
 -   125\. Valid Palindrome
 -   141\. Linked List Cycle
 -   217\. Contains Duplicate
