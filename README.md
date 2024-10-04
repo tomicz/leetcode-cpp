@@ -5,7 +5,6 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 ### Problems added.
 
 -   1\. Two Sum
--   Reverse Linked List
 -   Merge Two Sorted Lists
 -   20\. Valid Parentheses
 -   100\. Same Tree
@@ -14,6 +13,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   121\. Best Time to Buy and Sell Stock
 -   125\. Valid Palindrome
 -   141\. Linked List Cycle
+-   206\. Reverse Linked List
 -   217\. Contains Duplicate
 -   242\. Valid Anagram
 -   543\. Diameter of Binary Tree

@@ -138,34 +138,6 @@ void problem_merge_two_sorted_lists(){
     linked_list3->traverse_list();
 }
 
-// ====================================================
-// 206. Reverse Linked List 
-// ====================================================
-
-ListNode* reverse_list(ListNode* head) {
-    ListNode* prev = nullptr;
-    while(head != nullptr){
-        ListNode* temp = head->next;
-        head->next = prev;
-        prev = head;
-        head = temp;
-    }
-    return prev;
-}
-
-
-void problem_reverse_linked_list(){
-    LinkedList* linked_list = new LinkedList(1);
-    linked_list->add_last(2);
-    linked_list->add_last(3);
-    linked_list->add_last(4);
-    linked_list->add_last(5);
-    linked_list->add_last(6);
-    linked_list->traverse_list();
-    linked_list->head = reverse_list(linked_list->head);
-    linked_list->traverse_list();
-}    
-
 int main(){
     BinaryTree* binary_tree = new BinaryTree(10);
     binary_tree->insert(5);
@@ -176,7 +148,6 @@ int main(){
     binary_tree->insert(18);
 
     auto start = std::chrono::high_resolution_clock::now();
-    problem_maximum_depth_binary();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
