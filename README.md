@@ -5,7 +5,6 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 ### Problems added.
 
 -   1\. Two Sum
--   Binary Search
 -   Reverse Linked List
 -   Merge Two Sorted Lists
 -   20\. Valid Parentheses
@@ -19,6 +18,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   242\. Valid Anagram
 -   543\. Diameter of Binary Tree
 -   572\. Subtree of Another Tree
+-   704\. Binary Search
 
 ### How to use
 

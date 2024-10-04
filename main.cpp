@@ -166,35 +166,6 @@ void problem_reverse_linked_list(){
     linked_list->traverse_list();
 }    
 
-// ====================================================
-// BINARY SEARCH
-// ====================================================
-
-int search(std::vector<int> nums, int target){
-    int l = 0;
-    int r = nums.size() -1;
-    int m = l;
-
-    while(l <= r){
-        m = l + (r - l) / 2;
-        if(nums[m] < target)
-            l = m + 1;
-        else if(nums[m] > target)
-            r = m - 1;
-        else
-            return m; 
-    }
-
-    return -1;
-}
-void problem_binary_search(){
-    std::vector<int> inputA = {-1, 0, 3, 5, 9, 12};
-    int targetA = 9;
-   
-   int result = search(inputA, targetA); 
-   std::cout << "binary search result: " << result << std::endl;
-}
-
 int main(){
     BinaryTree* binary_tree = new BinaryTree(10);
     binary_tree->insert(5);
