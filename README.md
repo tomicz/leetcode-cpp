@@ -5,8 +5,8 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 ### Problems added.
 
 -   1\. Two Sum
--   Merge Two Sorted Lists
 -   20\. Valid Parentheses
+-   21\. Merge Two Sorted Lists
 -   100\. Same Tree
 -   104\. Maximum Depth of Binary Tree
 -   110\. Balanced Binary Tree
