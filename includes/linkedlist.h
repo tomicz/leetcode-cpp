@@ -18,6 +18,7 @@ class LinkedList{
         ~LinkedList();
 
         ListNode* add_last(int value);
+        ListNode* find(int value);
         void traverse_list();
 };
 

@@ -26,6 +26,17 @@ ListNode* LinkedList::add_last(int value){
     return node;
 }
 
+ListNode* LinkedList::find(int value){
+   if(head == nullptr) return nullptr;
+    ListNode* temp_node = head;
+    while(temp_node != nullptr){
+        if(temp_node->val == value)
+            return temp_node;
+        temp_node = temp_node->next;
+    }
+    return nullptr;
+}
+
 void LinkedList::traverse_list(){
     ListNode* temp = head;
     while(temp != nullptr){
