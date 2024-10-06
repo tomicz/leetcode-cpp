@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <queue>
 #include <stdexcept>
@@ -147,4 +148,15 @@ void BinaryTree::post_order_traversal_recursive(TreeNode* root){
     post_order_traversal_recursive(root->left);
     post_order_traversal_recursive(root->right);
     std::cout << "node value: " << root->value << std::endl;
+}
+
+int BinaryTree::max_depth(){
+    return max_depth(root);
+}
+
+int BinaryTree::max_depth(TreeNode* node){
+    if(node == nullptr) return 0;
+    int l = max_depth(node->left);
+    int r = max_depth(node->right);
+    return std::max(l, r) + 1;
 }

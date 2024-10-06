@@ -37,6 +37,7 @@ class BinaryTree{
         TreeNode* find(int value);
         void traverse(TraversalType type);
         void traverse_recursive(TraversalTypeRecursive type);
+        int max_depth();
 
     private:
         void level_order_traversal();
@@ -44,6 +45,7 @@ class BinaryTree{
         void pre_order_traversal_recursive(TreeNode* root);
         void in_order_traversal_recursive(TreeNode* root);
         void post_order_traversal_recursive(TreeNode* root);
+        int max_depth(TreeNode* root);
 
 };
 #endif
