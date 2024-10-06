@@ -31,7 +31,6 @@ class Solution{
                 anagrams.push_back(i.second);
             }
 
-
             return anagrams;
         }
 };
