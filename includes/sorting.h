@@ -6,6 +6,7 @@
 class Sorting{
     public:
         void sort_bubble(std::vector<int>& vec);
+        void sort_selection(std::vector<int>& vec);
         void print(std::vector<int>& vec);
 };
 

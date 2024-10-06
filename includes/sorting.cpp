@@ -14,6 +14,20 @@ void Sorting::sort_bubble(std::vector<int>& vec){
     }
 }
 
+void Sorting::sort_selection(std::vector<int>& vec){
+    for(size_t i = 0; i < vec.size(); i++){
+        int min = i;
+        int temp = vec[i]; 
+        for(size_t j = i+1; j < vec.size(); j++){
+            if(vec[j] < vec[min]){
+                min = j;
+            }
+        }
+        vec[i] = vec[min];
+        vec[min] = temp;
+    }
+}
+
 void Sorting::print(std::vector<int>& vec){
     for(int i: vec){
         std::cout << i << ", ";
