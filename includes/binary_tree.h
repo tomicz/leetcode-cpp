@@ -42,6 +42,7 @@ class BinaryTree{
     private:
         void level_order_traversal();
         void in_order_traversal();
+        void pre_order_traversal();
         void pre_order_traversal_recursive(TreeNode* root);
         void in_order_traversal_recursive(TreeNode* root);
         void post_order_traversal_recursive(TreeNode* root);

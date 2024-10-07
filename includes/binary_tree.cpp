@@ -68,7 +68,7 @@ void BinaryTree::traverse(TraversalType type){
             level_order_traversal();
             break;
         case TraversalType::PRE_ORDER:
-            throw std::invalid_argument("PRE_ORDER traversal function is missing!");
+            pre_order_traversal();
             break;
         case TraversalType::IN_ORDER:
             in_order_traversal();
@@ -97,6 +97,23 @@ void BinaryTree::level_order_traversal(){
         level++;
     }
     std::cout << "Tree max depth: " << level << std::endl;
+}
+
+void BinaryTree::pre_order_traversal(){
+    if(root == nullptr) return;
+    std::stack<TreeNode*> s;
+    s.push(root);
+    while(!s.empty()){
+        TreeNode* temp = s.top();
+        s.pop();
+        std::cout << "Node data: " << temp->value << std::endl;
+        if(temp->right != nullptr){
+            s.push(temp->right);
+        }
+        if(temp->left != nullptr){
+            s.push(temp->left);
+        }
+    }
 }
 
 void BinaryTree::in_order_traversal(){
