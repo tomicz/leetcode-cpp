@@ -28,7 +28,19 @@ void Sorting::sort_selection(std::vector<int>& vec){
     }
 }
 
-void Sorting::print(std::vector<int>& vec){
+void Sorting::sort_insertion(std::vector<int>& vec){
+   for(size_t i = 1; i < vec.size(); i++){
+       int key = vec[i];
+       int j = i - 1;
+       while(j >= 0 && vec[j] > key){
+           vec[j + 1] = vec[j];
+           j = j - 1;
+       }
+       vec[j+1] = key;
+   }
+}
+
+void Sorting::print(const std::vector<int>& vec){
     for(int i: vec){
         std::cout << i << ", ";
     }
