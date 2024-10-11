@@ -10,13 +10,6 @@ void print_vector(const std::vector<int>& vec){
     std::cout << std::endl;
 }
 
-void print_string(const std::string& s){
-    for(char c: s){
-        std::cout << c << ",";
-    }
-    std::cout << std::endl;
-}
-
 void sort_bubble(std::string& s){
     bool swapped;
     for(size_t i = 0; i < s.size(); i++){
