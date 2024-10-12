@@ -5,6 +5,7 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 ### Problems added.
 
 -   1\. Two Sum
+-   15\. 3Sum
 -   20\. Valid Parentheses
 -   21\. Merge Two Sorted Lists
 -   100\. Same Tree
