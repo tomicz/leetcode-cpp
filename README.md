@@ -12,10 +12,10 @@ If you're frustrated with LeetCode's editor due to the lack of autocomplete and 
 -   100\. Same Tree
 -   104\. Maximum Depth of Binary Tree
 -   110\. Balanced Binary Tree
--   115\. Min Stack
 -   121\. Best Time to Buy and Sell Stock
 -   125\. Valid Palindrome
 -   141\. Linked List Cycle
+-   155\. Min Stack
 -   206\. Reverse Linked List
 -   217\. Contains Duplicate
 -   242\. Valid Anagram
